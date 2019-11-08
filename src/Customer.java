@@ -1,6 +1,8 @@
+import java.util.*;
+
 class Customer {
    private String _name;
-   private Vector _rentals = new Vector();
+   private Vector <Rental> _rentals = new Vector<Rental>();
 
    public Customer (String name){
       _name = name;
@@ -16,7 +18,7 @@ class Customer {
   public String statement() {
      double totalAmount = 0;
      int frequentRenterPoints = 0;
-     Enumeration rentals = _rentals.elements();
+     Enumeration <Rental> rentals = _rentals.elements();
      String result = "Rental Record for " + getName() + "\n";
      while (rentals.hasMoreElements()) {
         double thisAmount = 0;
@@ -55,6 +57,7 @@ class Customer {
      result +=  "Amount owed is " + String.valueOf(totalAmount) + "\n";
      result += "You earned " + String.valueOf(frequentRenterPoints) +
              " frequent renter points";
+   
      return result;
-    }
+   }
 }
